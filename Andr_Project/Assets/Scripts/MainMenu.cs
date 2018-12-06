@@ -9,11 +9,12 @@ public class MainMenu : MonoBehaviour {
     public AudioMixer audioMixer;
 
     /// <summary>
-    /// Function to Start the game
+    /// Function to Start the Singleplayergame
     /// loads the next scene in the queue
     /// </summary>
-	public void PlayGame()
+	public void Play1PMode()
     {
+        Values.is2PMode = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -32,5 +33,11 @@ public class MainMenu : MonoBehaviour {
     public void SetVolume(float volume)
     {
         audioMixer.SetFloat("volume", volume);
+    }
+
+    public void Play2PMode()
+    {
+        Values.is2PMode = true;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
