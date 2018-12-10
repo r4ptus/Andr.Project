@@ -22,5 +22,5 @@ public class AudioManager : MonoBehaviour {
     public void PlayGoal()
     {
         audioSource.PlayOneShot(Goal);
-    }
+    }   
 }

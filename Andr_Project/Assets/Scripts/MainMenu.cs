@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
+    public Slider Slider;
+
+    public void Start()
+    {
+        audioMixer.SetFloat("volume", Values.Volume);
+        Slider.value = Values.Volume;
+    }
 
     /// <summary>
     /// Function to Start the Singleplayergame
@@ -32,6 +40,7 @@ public class MainMenu : MonoBehaviour {
     /// <param name="volume"></param>
     public void SetVolume(float volume)
     {
+        Values.Volume = volume;
         audioMixer.SetFloat("volume", volume);
     }
 
