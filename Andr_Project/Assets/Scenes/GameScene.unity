@@ -652,6 +652,8 @@ MonoBehaviour:
   ScoreScriptInstance: {fileID: 713946880}
   MaxSpeed: 20
   audioManager: {fileID: 713946883}
+  PlayerRedCollider: {fileID: 1995952412}
+  PlayerBlueCollider: {fileID: 825685026}
 --- !u!1 &563269601
 GameObject:
   m_ObjectHideFlags: 0

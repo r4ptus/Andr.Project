@@ -9,8 +9,13 @@ public class PuckScript : MonoBehaviour {
     public float MaxSpeed;
 
     public AudioManager audioManager;
+    public CircleCollider2D PlayerRedCollider;
+    public CircleCollider2D PlayerBlueCollider;
 
     private Rigidbody2D rb;
+
+    private int distanceRed;
+    private int distanceBlue;
 
     // Use this for initialization
     void Start()
@@ -66,5 +71,14 @@ public class PuckScript : MonoBehaviour {
     private void FixedUpdate()
     {
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, MaxSpeed);
+
+        if (PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max))
+        {
+            rb.position = new Vector2(0, -1);
+        }
+        if (PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max))
+        {
+            rb.position = new Vector2(0, 1);
+        }
     }
 }
