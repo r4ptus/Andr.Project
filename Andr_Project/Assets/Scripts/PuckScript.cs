@@ -16,6 +16,8 @@ public class PuckScript : MonoBehaviour {
 
     private int distanceRed;
     private int distanceBlue;
+    private bool isClipping = false;
+    private bool calledOnece = false;
 
     // Use this for initialization
     void Start()
@@ -68,17 +70,47 @@ public class PuckScript : MonoBehaviour {
             rb.position = new Vector2(0, 1);
     }
 
+    private IEnumerator IsClipping()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        if (isClipping)
+        {
+            if ((PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)) || (PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max) && PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)))
+            {
+                rb.position = new Vector2(0, -1);
+                rb.velocity = new Vector2(0, 0);
+            }
+            if ((PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)) || (PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max) && PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)))
+            {
+                rb.position = new Vector2(0, 1);
+                rb.velocity = new Vector2(0, 0);
+            }          
+        }
+        isClipping = false;
+        calledOnece = false;
+    }
+
     private void FixedUpdate()
     {
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, MaxSpeed);
 
-        if (PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max))
+        if ((PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)) || (PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max) && PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)))
         {
-            rb.position = new Vector2(0, -1);
+            isClipping = true;
+            if (!calledOnece)
+            {
+                StartCoroutine(IsClipping());
+                calledOnece = true;
+            }
         }
-        if (PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max))
+        if ((PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)) || (PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max) && PlayerBlueCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)))
         {
-            rb.position = new Vector2(0, 1);
+            isClipping = true;
+            if (!calledOnece)
+            {
+                StartCoroutine(IsClipping());
+                calledOnece = true;
+            }
         }
     }
 }
