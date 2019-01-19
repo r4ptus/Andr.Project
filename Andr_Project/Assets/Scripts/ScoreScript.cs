@@ -10,7 +10,8 @@ public class ScoreScript : MonoBehaviour {
         AiScore, PlayerScore
     }
 
-    public TextMeshProUGUI AiScoreTxt, PlayerScoreTxt;
+    public TextMeshProUGUI AiScoreTxt, PlayerScoreTxt,WinTxt;
+    public GameObject WinMenu;
 
     //public UiManager uiManager;
 
@@ -28,7 +29,8 @@ public class ScoreScript : MonoBehaviour {
             if (value == MaxScore)
             {
                 //lose screen
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                WinTxt.text = "Blue Player Wins!";
+                WinMenu.SetActive(true);
             }
         }
     }
@@ -42,7 +44,8 @@ public class ScoreScript : MonoBehaviour {
             if (value == MaxScore)
             {
                 //win screen
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+                WinTxt.text = "Red Player Wins!";
+                WinMenu.SetActive(true);
             }
             
         }

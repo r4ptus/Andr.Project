@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 
     public List<PlayerMovement> Players = new List<PlayerMovement>();
     public GameObject AiPlayer;
+    public GameObject PauseMenu;
+
     private void Start()
     {
         if (Values.is2PMode)
@@ -44,6 +46,11 @@ public class PlayerController : MonoBehaviour {
                         player.LockedFingerID = null;
                 }
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }
