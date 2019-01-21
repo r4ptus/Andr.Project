@@ -35,6 +35,8 @@ public class AIScript : MonoBehaviour {
                               PuckBoundaryHolder.GetChild(1).position.y,
                               PuckBoundaryHolder.GetChild(2).position.x,
                               PuckBoundaryHolder.GetChild(3).position.x);
+
+        MaxMovementSpeed = Values.AiSpeed;
     }
 
     private void FixedUpdate()

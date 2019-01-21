@@ -31,6 +31,7 @@ public class ScoreScript : MonoBehaviour {
                 //lose screen
                 WinTxt.text = "Blue Player Wins!";
                 WinMenu.SetActive(true);
+                Time.timeScale = 0;
             }
         }
     }
@@ -46,6 +47,7 @@ public class ScoreScript : MonoBehaviour {
                 //win screen
                 WinTxt.text = "Red Player Wins!";
                 WinMenu.SetActive(true);
+                Time.timeScale = 0;
             }
             
         }

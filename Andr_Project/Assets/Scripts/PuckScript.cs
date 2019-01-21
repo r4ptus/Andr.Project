@@ -72,7 +72,7 @@ public class PuckScript : MonoBehaviour {
 
     private IEnumerator IsClipping()
     {
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(2);
         if (isClipping)
         {
             if ((PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.min) && PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)) || (PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.max) && PlayerRedCollider.bounds.Contains(GetComponent<CircleCollider2D>().bounds.center)))
@@ -84,7 +84,8 @@ public class PuckScript : MonoBehaviour {
             {
                 rb.position = new Vector2(0, 1);
                 rb.velocity = new Vector2(0, 0);
-            }          
+            }
+            Debug.Log("isClipping");
         }
         isClipping = false;
         calledOnece = false;

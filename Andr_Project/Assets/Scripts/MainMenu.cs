@@ -9,11 +9,13 @@ public class MainMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
     public Slider Slider;
+    public Dropdown Dropdown;
 
     public void Start()
     {
         audioMixer.SetFloat("volume", Values.Volume);
         Slider.value = Values.Volume;
+        Dropdown.value = Values.selectionIndex;
     }
 
     /// <summary>
@@ -48,5 +50,23 @@ public class MainMenu : MonoBehaviour {
     {
         Values.is2PMode = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void SetAiDifficulty(int i)
+    {
+        Values.selectionIndex = i;
+
+        if(i == 0)
+        {
+            Values.AiSpeed = 7.5f;
+        }
+        else if(i == 1)
+        {
+            Values.AiSpeed = 10;
+        }
+        else if(i == 2)
+        {
+            Values.AiSpeed = 15;
+        }
     }
 }
