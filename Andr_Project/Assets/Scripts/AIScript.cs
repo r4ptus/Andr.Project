@@ -1,26 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/** Script zur Steuerung der KI */
 public class AIScript : MonoBehaviour {
 
-    public float MaxMovementSpeed;
-    private Rigidbody2D rb;
-    private Vector2 startingPosition;
+    public float MaxMovementSpeed; /** maximale Geschwindigkeit */
+    private Rigidbody2D rb; /** Rigidbody fuer den Schlaeger der KI */
+    private Vector2 startingPosition; /**Startposition des Schlaegers*/
 
-    public Rigidbody2D Puck;
+    public Rigidbody2D Puck; /** Rigidbody fuer den Puck */
 
-    public Transform PlayerBoundaryHolder;
-    private Boundary playerBoundary;
+    public Transform PlayerBoundaryHolder; 
+    private Boundary playerBoundary; /**Spielfeldbegrenzung fuer den Schlaeger */
 
     public Transform PuckBoundaryHolder;
-    private Boundary puckBoundary;
+    private Boundary puckBoundary; /**Begrenzung der eigenen Spielhaelfte*/
 
-    private Vector2 targetPosition;
+    private Vector2 targetPosition; /**Zielposition des Schlaegers */
 
     private bool isFirstTimeInOpponentsHalf = true;
     private float offsetXFromTarget;
 
+    /** Initailisierung */
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,7 +39,7 @@ public class AIScript : MonoBehaviour {
 
         MaxMovementSpeed = Values.AiSpeed;
     }
-
+    /** Methode zur Bewegung der KI */
     private void FixedUpdate()
     {
         float movementSpeed;
