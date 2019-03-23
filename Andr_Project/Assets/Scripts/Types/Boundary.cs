@@ -1,4 +1,6 @@
-﻿
+﻿/**
+ * Struct zum Merken der Boundarys zur Begrenzung des Spielfelds 
+ */
 struct Boundary
 {
     public float Up, Down, Left, Right;

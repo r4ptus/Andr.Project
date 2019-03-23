@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/** Klasse um die Bewegung und die Positionierung der Schlaeger zu realisieren 
+ */ 
 public class PlayerMovement : MonoBehaviour
 {
 
-    Rigidbody2D rb;
-    Vector2 startingPosition;
+    Rigidbody2D rb; 
+    Vector2 startingPosition; /**Startposition */ 
 
     public Transform BoundaryHolder;
 
-    Boundary playerBoundary;
+    Boundary playerBoundary; /**Spielfeldbegrenzung fuer den Spieler */
 
     public Collider2D PlayerCollider { get; private set; }
     public PlayerController Controller;
     public int? LockedFingerID { get; set; }
 
-    // Use this for initialization
+    /** Initialiesierung */
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
