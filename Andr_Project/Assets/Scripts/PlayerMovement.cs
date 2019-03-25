@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     /** Initialiesierung */
     void Start()
     {
+       
+
         rb = GetComponent<Rigidbody2D>();
         startingPosition = rb.position;
         PlayerCollider = GetComponent<Collider2D>();
@@ -29,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
                                       BoundaryHolder.GetChild(1).position.y,
                                       BoundaryHolder.GetChild(2).position.x,
                                       BoundaryHolder.GetChild(3).position.x);
-
+        
     }
 
     private void OnEnable()
@@ -54,4 +56,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.position = startingPosition;
     }
+
+   
 }

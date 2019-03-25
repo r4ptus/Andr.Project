@@ -69,4 +69,25 @@ public class MainMenu : MonoBehaviour {
             Values.AiSpeed = 15;
         }
     }
+
+    public void SetColour(int i)
+    {
+        if(i == 0)
+        {
+            Values.playerColour = Colour.Red;
+        
+        }
+        else if (i == 1)
+        {
+            Values.playerColour = Colour.LightBlue;
+        }
+        else if (i == 2)
+        {
+            Values.playerColour = Colour.Violett;
+        }
+        else if (i == 3)
+        {
+            Values.playerColour = Colour.Green;
+        }
+    }
 }

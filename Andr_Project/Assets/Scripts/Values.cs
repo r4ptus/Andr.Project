@@ -4,5 +4,6 @@
     public static float Volume = 0;
     public static float AiSpeed = 10;
     public static int selectionIndex = 1;
+    public static Colour playerColour = Colour.Red;
 
 }
