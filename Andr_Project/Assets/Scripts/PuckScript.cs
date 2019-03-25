@@ -5,8 +5,8 @@ using UnityEngine;
 public class PuckScript : MonoBehaviour {
 
     public ScoreScript ScoreScriptInstance;
-    public static bool WasGoal { get; private set; }
-    public float MaxSpeed;
+    public static bool WasGoal { get; private set; } //** Boolean ob ein Tor geschossen wurde */
+    public float MaxSpeed; /** Maximale Geschwindigkeit der Pucks */
 
     public AudioManager audioManager;
     public CircleCollider2D PlayerRedCollider;
@@ -19,7 +19,7 @@ public class PuckScript : MonoBehaviour {
     private bool isClipping = false;
     private bool calledOnece = false;
 
-    // Use this for initialization
+    /** Initialisierung */
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -51,11 +51,13 @@ public class PuckScript : MonoBehaviour {
         }
     }
 
+    /** Fuegt Sound beim Spielen des Pucks hinzu */
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         audioManager.PlayPuckCollision();
     }
-
+     /** Setzt den Puck auf die Seite, desjenigen der das Tor geschossen hat  */
     private IEnumerator ResetPuck(bool didAiScore)
     {
         yield return new WaitForSecondsRealtime(1);
@@ -90,7 +92,7 @@ public class PuckScript : MonoBehaviour {
         isClipping = false;
         calledOnece = false;
     }
-
+     /** Limitiert die maximale Geschwindigkeit des Pucks und verhindert clipping */
     private void FixedUpdate()
     {
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, MaxSpeed);

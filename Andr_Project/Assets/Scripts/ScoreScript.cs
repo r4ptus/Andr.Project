@@ -4,18 +4,21 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+/** Script zum Erkennen und Zaehlen der erzielten Tore */
 public class ScoreScript : MonoBehaviour {
+    /** Zum Unterscheiden, wer das Tor erzielt hat */
     public enum Score
     {
         AiScore, PlayerScore
     }
 
-    public TextMeshProUGUI AiScoreTxt, PlayerScoreTxt,WinTxt;
+    public TextMeshProUGUI AiScoreTxt, PlayerScoreTxt,WinTxt; //**Textanzeige der Tore */
     public GameObject WinMenu;
 
     //public UiManager uiManager;
 
-    public int MaxScore;
+    public int MaxScore; /**Anzahl benoetigten Tore zum Gewinnen */
+
 
     #region Scores
     private int aiScore, playerScore;
@@ -53,7 +56,7 @@ public class ScoreScript : MonoBehaviour {
         }
     }
     #endregion
-
+     /** Methode zum erhoehen der Tore */
     public void Increment(Score whichScore)
     {
         //goal animation
@@ -63,6 +66,7 @@ public class ScoreScript : MonoBehaviour {
             PlayerScoreTxt.text = (++PlayerScore).ToString();
     }
 
+    /** Setzt die Anzahl der Tore auf 0 zurück */
     public void ResetScores()
     {
         AiScore = PlayerScore = 0;
