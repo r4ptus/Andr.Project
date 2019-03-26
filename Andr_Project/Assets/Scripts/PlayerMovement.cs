@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     /** Initialiesierung */
     void Start()
     {
-       
 
+        setPlayerColour(Values.playerColour);
         rb = GetComponent<Rigidbody2D>();
         startingPosition = rb.position;
         PlayerCollider = GetComponent<Collider2D>();
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Controller.Players.Remove(this);
     }
-
+    /** Bewegt den Schlaeger zur angegebenen Position */
     public void MoveToPosition(Vector2 position)
     {
         Vector2 clampedMousePos = new Vector2(Mathf.Clamp(position.x, playerBoundary.Left,
@@ -51,10 +51,56 @@ public class PlayerMovement : MonoBehaviour
                                                   playerBoundary.Up));
         rb.MovePosition(clampedMousePos);
     }
-
+    /** Setzt den Schlaeger auf die Starposition zurueck */
     public void ResetPosition()
     {
         rb.position = startingPosition;
+    }
+    /** Aendert die Farbe des Schlaegers */
+    public void setPlayerColour(Colour colour)
+    {
+        GameObject[] objects = Resources.FindObjectsOfTypeAll<GameObject>();
+        GameObject player = null;
+        if( colour == Colour.Red)
+        {
+            player = FindObject("PlayerRed", objects);
+
+        }
+        else if (colour == Colour.Green)
+        {
+            player = FindObject("PlayerGreen", objects);
+        }
+        else if (colour == Colour.Tuerkis)
+        {
+            player = FindObject("PlayerTuerkis", objects);
+        }
+        else if (colour == Colour.Violett)
+        {
+            player = FindObject("PlayerViolet", objects);
+        }
+       
+        if(player != null)
+        {
+            gameObject.SetActive(false);
+            player.SetActive(true);
+        }
+        
+        
+        ;
+    }
+    /** Methode zum finden des gesuchten Gameobjects anhand des Namens auf einem Array
+     * Gibt das gesuchte Gameobject oder null zurueck, falls keins gefunden wurde */
+    private GameObject FindObject(string name, GameObject[] objects)
+    {
+        GameObject ret = null;
+        for(int i = 0; i < objects.Length; i++)
+        {
+            if (objects[i].name == name)
+            {
+                ret = objects[i];
+            }
+        }
+        return ret;
     }
 
    

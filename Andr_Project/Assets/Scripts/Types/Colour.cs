@@ -1,5 +1,7 @@
 ﻿
+/** Moegliche Farben des Schlaegers */
+
 public enum Colour
 {
-    Red, Green, LightBlue, Violett
+    Red, Green, Tuerkis, Violett
 }

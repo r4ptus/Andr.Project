@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-/** Script zum Erkennen und Zaehlen der erzielten Tore */
+/** Script Zaehlen der erzielten Tore */
 public class ScoreScript : MonoBehaviour {
     /** Zum Unterscheiden, wer das Tor erzielt hat */
     public enum Score

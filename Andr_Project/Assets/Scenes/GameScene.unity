@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 240384772}
   - component: {fileID: 240384771}
   m_Layer: 0
-  m_Name: PlayerTurkispng
+  m_Name: PlayerTuerkis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

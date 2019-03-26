@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/** Berechnet die Boundaries */
 public class BoundaryScript : MonoBehaviour {
 
     public Transform PlayerPuckBoundary;
@@ -12,7 +12,7 @@ public class BoundaryScript : MonoBehaviour {
     public CircleCollider2D Player;
     public CircleCollider2D Ai;
 
-    // Use this for initialization
+    /**Initialisierung */
     void Awake () {
         PlayerBoundary.GetChild(0).position = new Vector3(PlayerBoundary.GetChild(0).position.x, PlayerPuckBoundary.GetChild(0).position.y - Player.radius, 0);//top
         PlayerBoundary.GetChild(1).position = new Vector3(PlayerBoundary.GetChild(1).position.x, PlayerPuckBoundary.GetChild(1).position.y + Player.radius, 0);//bottom

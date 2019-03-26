@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/** Skript zu Einstellungen bzueglich des Pucks und zum erkennen von Toren*/
 public class PuckScript : MonoBehaviour {
 
     public ScoreScript ScoreScriptInstance;
@@ -25,7 +25,7 @@ public class PuckScript : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         WasGoal = false;
     }
-
+    /** Trigger zum erkennen von Toren, ordnet das Tor dem richtigen Player zu */
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!WasGoal)

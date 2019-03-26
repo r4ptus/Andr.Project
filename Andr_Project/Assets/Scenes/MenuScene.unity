@@ -5602,7 +5602,7 @@ MonoBehaviour:
     m_Options:
     - m_Text: Red
       m_Image: {fileID: 0}
-    - m_Text: Light Blue
+    - m_Text: Turquoise
       m_Image: {fileID: 0}
     - m_Text: Violet
       m_Image: {fileID: 0}

@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-
+/** Steuert das Hauptmenue */
 public class MainMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
     public Slider Slider;
     public Dropdown Dropdown;
-
+     /** Initialisierung */
     public void Start()
     {
         audioMixer.SetFloat("volume", Values.Volume);
@@ -45,13 +45,14 @@ public class MainMenu : MonoBehaviour {
         Values.Volume = volume;
         audioMixer.SetFloat("volume", volume);
     }
-
+     /** Startet 2 - Spieler Modus */
     public void Play2PMode()
     {
         Values.is2PMode = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    /** Setzt anhand der Schwierigkeit die Geschwindgkeit der KI */
     public void SetAiDifficulty(int i)
     {
         Values.selectionIndex = i;
@@ -70,16 +71,18 @@ public class MainMenu : MonoBehaviour {
         }
     }
 
+
+    /** Setzt die Farbe des Schlaegers */
     public void SetColour(int i)
     {
         if(i == 0)
         {
-            Values.playerColour = Colour.Red;
+            Values.playerColour = Colour.Tuerkis;
         
         }
         else if (i == 1)
         {
-            Values.playerColour = Colour.LightBlue;
+            Values.playerColour = Colour.Red;
         }
         else if (i == 2)
         {
