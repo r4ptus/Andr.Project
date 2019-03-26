@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerController Controller;
     public int? LockedFingerID { get; set; }
 
-    /** Initialiesierung */
+    /** Initialisierung */
     void Start()
     {
 

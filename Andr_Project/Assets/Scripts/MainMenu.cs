@@ -75,6 +75,7 @@ public class MainMenu : MonoBehaviour {
     /** Setzt die Farbe des Schlaegers */
     public void SetColour(int i)
     {
+
         if(i == 0)
         {
             Values.playerColour = Colour.Tuerkis;

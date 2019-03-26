@@ -7,5 +7,6 @@ public static class Values {
     public static float AiSpeed = 10; /** Geschwindigkeit der KI */
     public static int selectionIndex = 1; /** Index, welche Schwierigkeit ausgewahlt wurde */
     public static Colour playerColour = Colour.Red; /** Farbe des Schlaegers */
+   
 
 }
