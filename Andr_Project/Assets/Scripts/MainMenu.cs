@@ -10,12 +10,15 @@ public class MainMenu : MonoBehaviour {
     public AudioMixer audioMixer;
     public Slider Slider;
     public Dropdown Dropdown;
+    public Dropdown ColorDropdown;
      /** Initialisierung */
     public void Start()
     {
         audioMixer.SetFloat("volume", Values.Volume);
         Slider.value = Values.Volume;
         Dropdown.value = Values.selectionIndex;
+        ColorDropdown.value = Values.selectionIndexColor;
+       
     }
 
     /// <summary>
@@ -75,23 +78,26 @@ public class MainMenu : MonoBehaviour {
     /** Setzt die Farbe des Schlaegers */
     public void SetColour(int i)
     {
-
+        Values.selectionIndexColor = i;
         if(i == 0)
         {
             Values.playerColour = Colour.Tuerkis;
-        
+            Debug.Log("Türkies");
         }
         else if (i == 1)
         {
             Values.playerColour = Colour.Red;
+            Debug.Log("rot");
         }
         else if (i == 2)
         {
             Values.playerColour = Colour.Violett;
+            Debug.Log("violett");
         }
         else if (i == 3)
         {
             Values.playerColour = Colour.Green;
+            Debug.Log("Green");
         }
     }
 }

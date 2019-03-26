@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     Rigidbody2D rb; 
-    Vector2 startingPosition; /**Startposition */ 
+    Vector2 startingPosition; /**Startposition */
 
     public Transform BoundaryHolder;
 
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
                                       BoundaryHolder.GetChild(1).position.y,
                                       BoundaryHolder.GetChild(2).position.x,
                                       BoundaryHolder.GetChild(3).position.x);
-        
+        Debug.Log(Values.playerColour.ToString());
     }
 
     private void OnEnable()
@@ -64,7 +64,6 @@ public class PlayerMovement : MonoBehaviour
         if( colour == Colour.Red)
         {
             player = FindObject("PlayerRed", objects);
-
         }
         else if (colour == Colour.Green)
         {
@@ -84,9 +83,6 @@ public class PlayerMovement : MonoBehaviour
             gameObject.SetActive(false);
             player.SetActive(true);
         }
-        
-        
-        ;
     }
     /** Methode zum finden des gesuchten Gameobjects anhand des Namens auf einem Array
      * Gibt das gesuchte Gameobject oder null zurueck, falls keins gefunden wurde */

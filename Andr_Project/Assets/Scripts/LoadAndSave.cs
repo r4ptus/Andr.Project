@@ -8,6 +8,7 @@ public class LoadAndSave : MonoBehaviour {
 	private void Awake () {
         Values.Volume = PlayerPrefs.GetFloat("volume");
         Values.selectionIndex = PlayerPrefs.GetInt("index");
+        Values.selectionIndexColor = PlayerPrefs.GetInt("indexC");
 	}
     
     private void Start()
@@ -21,6 +22,7 @@ public class LoadAndSave : MonoBehaviour {
         {
             PlayerPrefs.SetFloat("volume", Values.Volume);
             PlayerPrefs.SetInt("index", Values.selectionIndex);
+            PlayerPrefs.SetInt("indexC", Values.selectionIndexColor);
             PlayerPrefs.Save();
         }
     }
@@ -28,6 +30,7 @@ public class LoadAndSave : MonoBehaviour {
     private void OnApplicationQuit () {
         PlayerPrefs.SetFloat("volume", Values.Volume);
         PlayerPrefs.SetInt("index", Values.selectionIndex);
+        PlayerPrefs.SetInt("indexC", Values.selectionIndexColor);
         PlayerPrefs.Save();
 	}
 }
