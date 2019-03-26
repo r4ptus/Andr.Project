@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour {
 
     public AudioClip PuckCollision;
-    public AudioClip Goal;
+    public AudioClip Goal; 
 
     private AudioSource audioSource;
 

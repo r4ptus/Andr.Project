@@ -6,7 +6,7 @@ public static class Values {
     public static float Volume = 0; /** Lautstaerke des Spiels */
     public static float AiSpeed = 10; /** Geschwindigkeit der KI */
     public static int selectionIndex = 1; /** Index, welche Schwierigkeit ausgewahlt wurde */
-    public static int selectionIndexColor = 1;
+    public static int selectionIndexColor = 1; /** Index, welche Farbe ausgewaehlt ist */
     public static Colour playerColour = Colour.Red; /** Farbe des Schlaegers */
    
 
